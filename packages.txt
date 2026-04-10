@@ -1,2 +1,0 @@
-# System packages for Streamlit Cloud
-# These are installed on the server
