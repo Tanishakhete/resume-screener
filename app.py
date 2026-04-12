@@ -851,7 +851,7 @@ elif page == "📤 Single Analysis":
                             <div class="result-card" style="text-align: center;">
                                 <div class="result-title">Predicted Role</div>
                                 <div style="font-size: 2.5rem; margin: 0.5rem 0;">💼</div>
-                                <div class="result-value" style="font-size: 1.3rem;">{result['predicted_category']}</div>
+                                <div class="result-value" style="font-size: 1.3rem; text-transform: lowercase;">{result['predicted_category']}</div>
                             </div>
                             """, unsafe_allow_html=True)
                         
@@ -1096,7 +1096,7 @@ elif page == "📊 Batch Ranking":
                             rank = result['rank']
                             name = result['name']
                             score = result['match_score'] * 100
-                            category = result['predicted_category']
+                            category = result['predicted_category'].lower()
                             interpretation = result['interpretation']
                             
                             # Medal for top 3
@@ -1148,7 +1148,7 @@ elif page == "📊 Batch Ranking":
                                 'Rank': r['rank'],
                                 'Name': r['name'],
                                 'Match Score': f"{r['match_score']*100:.1f}%",
-                                'Category': r['predicted_category'],
+                                'Category': r['predicted_category'].lower(),
                                 'Similarity': f"{r['similarity_score']*100:.1f}%"
                             }
                             for r in ranked_results
@@ -1198,7 +1198,7 @@ elif page == "📈 Performance":
         
         with col1:
             st.subheader("🤖 Model Information")
-            st.write(f"**Algorithm:** {metadata['algorithm'].replace('_', ' ').title()}")
+            st.write(f"**Algorithm:** {metadata['algorithm'].replace('_', ' ').lower()}")
             st.write(f"**Vectorizer:** {metadata['vectorizer_method'].upper()}")
             st.write(f"**Number of Categories:** {len(metadata['label_mapping'])}")
         
