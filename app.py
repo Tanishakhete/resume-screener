@@ -1018,11 +1018,13 @@ elif page == "📤 Single Analysis":
                             if keywords:
                                 st.markdown("<div style='display: flex; flex-wrap: wrap; gap: 0.5rem;'>", unsafe_allow_html=True)
                                 for kw in keywords[:15]:
+                                    # Capitalize first letter for formal display
+                                    formal_keyword = kw['keyword'].capitalize()
                                     st.markdown(f"""
                                     <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                                                  color: white; padding: 0.4rem 1rem; border-radius: 20px; 
                                                  font-size: 0.85rem; font-weight: 500;">
-                                        {kw['keyword']}
+                                        {formal_keyword}
                                     </span>
                                     """, unsafe_allow_html=True)
                                 st.markdown("</div>", unsafe_allow_html=True)
